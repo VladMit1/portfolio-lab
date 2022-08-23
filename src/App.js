@@ -1,8 +1,7 @@
+import './scss/main.scss';
 
 function App() {
-  return (
-    <div>HI</div>
-  );
+   return <div className="hi">HI</div>;
 }
 
 export default App;
