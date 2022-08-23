@@ -1,5 +1,21 @@
-.hi{
-   height:100px;
-   width:100px;
-   background:blueviolet;
+@use 'sass:map';
+@use 'sass:color';
+
+@import 'vriables.scss';
+@import 'maps.scss';
+@import 'navigation.scss';
+
+
+.hi {
+   background: $color-Yellow;
+   .hi1 {
+      font-family: $font-Base;
+      font-weight: 900;
+      font-style: italic;
+   }
+   .hi2 {
+      font-family: $font-Alt;
+      font-style: italic;
+
+   }
 }
