@@ -3,19 +3,7 @@
 
 @import 'vriables.scss';
 @import 'maps.scss';
-@import 'navigation.scss';
+@import 'reset.scss';
+@import 'home.scss';
+@import 'layout.scss';
 
-
-.hi {
-   background: $color-Yellow;
-   .hi1 {
-      font-family: $font-Base;
-      font-weight: 900;
-      font-style: italic;
-   }
-   .hi2 {
-      font-family: $font-Alt;
-      font-style: italic;
-
-   }
-}

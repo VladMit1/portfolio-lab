@@ -1,0 +1,50 @@
+.home {
+   grid-row-start: 1;
+   grid-column-start: 1;
+   grid-column-end: 3;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   &__background {
+      background: url('../assets/Home-Hero-Image.jpg') 100% 100% no-repeat;
+      height: 1000px;
+   }
+   &__form {
+      display: grid;
+      grid-template-rows: repeat(8, 1fr);
+   }
+}
+.form {
+   &__title {
+      grid-row-start: 4;
+      font-size: 3em;
+      text-align: center;
+      align-self: center;
+   }
+
+   &__decoration {
+      align-self: center;
+      grid-row-start: 5;
+      margin-bottom: 2em;
+      background: url('../assets/Decoration.svg') 100% 100% no-repeat;
+      background-position: center;
+      height: 2em;
+   }
+   &__buttons {
+      z-index: 2;
+      grid-row-start: 6;
+      display: flex;
+      justify-content: center;
+      .btn {
+         text-decoration: none;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         text-align: center;
+         width: 320px;
+         height: 120px;
+         font-size: 2.25em;
+         border: 1px solid $color-DarkGray;
+         margin: 0 1.5em;
+      }
+   }
+}
