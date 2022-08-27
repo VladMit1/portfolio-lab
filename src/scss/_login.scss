@@ -1,0 +1,61 @@
+.form-log {
+   grid-row-start: 2;
+   grid-column-start: 1;
+   grid-column-end: 3;
+   align-self: center;
+   justify-self: center;
+   display: grid;
+   grid-template-rows: repeat(10, 1fr);
+   &__login {
+      text-align: center;
+      grid-row-start: 3;
+      font-size: 2.5em;
+   }
+   &__decoration {
+      grid-row-start: 4;
+      background: $decoration;
+   }
+   &__input {
+      grid-row-start: 5;
+      grid-row-end: 8;
+      margin: 1em auto;
+      padding: 2em 3em 1em;
+      width: 24.0625em;
+      display: flex;
+      flex-direction: column;
+      background: $color-White;
+
+      .label {
+         font-weight: bold;
+      }
+      .input {
+         outline: none;
+         flex-grow: 1;
+         background: $color-White;
+         border: none;
+         width: 18.75em;
+         height: 2em;
+         border-bottom: 1px solid $color-DarkGray;
+         margin-bottom: 2em;
+      }
+   }
+   &__button {
+      grid-row-start: 8;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 31.5em;
+
+      .log-link {
+         text-decoration: none;
+         font-size: 1.125em;
+         font-weight: 300;
+      }
+      .button-btn {
+         font-size: 1.125em;
+         font-weight: 300;
+         width: 6.5em;
+         height: 2.778em;
+      }
+   }
+}

@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { ThreeColumn } from '../components/home-threeColumn';
 
 export const Home = () => {
+   const [satatus, setSatatus] = useState(false);
+
+   const actuallyStatus = satatus !== false ? '/oddaj-rzeczy' : '/logowanie';
    return (
       <div className="home">
          <div className="home__background"></div>
@@ -11,7 +16,7 @@ export const Home = () => {
 
             <div className="form__decoration"></div>
             <div className="form__buttons">
-               <Link to="/oddaj-rzeczy" className="btn">
+               <Link to={actuallyStatus} className="btn">
                   ODDAJ <br></br> RZECZY
                </Link>
                <Link to="/oddaj-rzeczy" className="btn">
@@ -20,6 +25,7 @@ export const Home = () => {
                </Link>
             </div>
          </div>
+         <ThreeColumn />
       </div>
    );
 };

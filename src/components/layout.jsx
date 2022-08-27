@@ -9,7 +9,7 @@ export const Layout = () => {
                   Zaloguj
                </Link>
                <Link to="/rejestracja" className="log-link">
-               Załóż konto
+                  Załóż konto
                </Link>
                {/*<Link to="/wylogowano" className="log-link">Logout</Link>*/}
             </div>

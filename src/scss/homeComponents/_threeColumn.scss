@@ -1,0 +1,27 @@
+.statistyk {
+   grid-column-start: 1;
+   grid-column-end: 3;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   background: url('../../assets/yellowstring.png');
+   height: 24em;
+   text-align: center;
+   justify-content: center;
+   align-items: center;
+   justify-items: center;
+   &__title {
+      width: 22em;
+      display: grid;
+      grid-row-gap:1em;
+      .counts {
+         font-size: 5.625em;
+         font-weight: 300;
+      }
+      .title {
+         font-size: 1.125em;
+      }
+      .description {
+         font-weight: 300;
+      }
+   }
+}
