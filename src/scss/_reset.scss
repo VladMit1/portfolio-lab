@@ -1,7 +1,27 @@
-*{
+* {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
-   color:$color-DarkGray;
+   color: $color-DarkGray;
    font-family: $font-Base;
+}
+.decoration {
+   align-self: center;
+   margin-bottom: 2em;
+   background: url('../assets/Decoration.svg') 100% 100% no-repeat;
+   background-position: center;
+   height: 2em;
+}
+
+.btn {
+   text-decoration: none;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   width: 320px;
+   height: 120px;
+   font-size: 2.25em;
+   border: 1px solid $color-DarkGray;
+   margin: 0 1.5em;
 }

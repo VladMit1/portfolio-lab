@@ -1,0 +1,129 @@
+.contacts {
+   z-index: 2;
+   background: url('../../assets/Background-Contact-Form.jpg') 100% 100%
+      no-repeat;
+   background-size: cover;
+   background-position: center top;
+   height: 64.125em;
+   grid-column-start: 1;
+   grid-column-end: 3;
+   display: grid;
+   grid-template-columns: repeat(9, 1fr);
+   position: relative;
+   &::after {
+      content: '';
+      position: absolute;
+      background-color: rgb(255, 255, 255, 0.8);
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+   }
+
+   &__form {
+      z-index: 2;
+      width: 33em;
+      align-self: center;
+      grid-column-start: 7;
+      grid-column-end: 9;
+   }
+   .form {
+      &__title {
+         font-size: 2.375em;
+         margin-bottom: 0.8em;
+      }
+      &__inputs {
+         display: grid;
+         grid-template-columns: repeat(2, 1fr);
+         grid-column-gap: 1em;
+         grid-row-gap: 1.5em;
+         .label {
+            font-weight: 600;
+            &:nth-of-type(1) {
+               grid-column-start: 1;
+               grid-column-end: 2;
+            }
+            &:nth-of-type(2) {
+               grid-column-start: 2;
+               grid-column-end: 3;
+            }
+            &:nth-of-type(3) {
+               grid-column-start: 1;
+               grid-column-end: 3;
+               grid-row-start: 3;
+            }
+         }
+         .inputs {
+            border: none;
+            background: none;
+            border-bottom: 1px solid $color-Grey;
+            outline: none;
+            font-size: 1.125em;
+            &::placeholder {
+               color: $color-White;
+            }
+            &:nth-of-type(1) {
+               grid-column-start: 1;
+               grid-row-start: 2;
+            }
+            &:nth-of-type(2) {
+               grid-column-start: 2;
+               grid-row-start: 2;
+            }
+         }
+         .textarea {
+            font-size: 1.125em;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 4;
+            resize: none;
+            background: none;
+            border: none;
+            border-bottom: 1px solid $color-Grey;
+            outline: none;
+            &::placeholder {
+               color: $color-White;
+            }
+         }
+         .btn {
+            background: none;
+            grid-column-start: 2;
+            font-size: 1.125em;
+            justify-self: flex-end;
+            margin: 0;
+            width: 8.3em;
+            height: 2.75em;
+         }
+      }
+   }
+   .decoration {
+      margin: 0 0 4em 0;
+   }
+   .footer {
+      z-index: 2;
+      grid-column-start: 6;
+      grid-column-end: 9;
+      align-self: flex-end;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2em;
+      .copyright {
+         font-size: 1.125em;
+         flex-grow: 1;
+      }
+      .social-icons {
+         display: flex;
+         justify-content: flex-end;
+         .icon {
+            margin-left: 1.5em;
+            padding: 1em;
+            &:nth-child(1) {
+               background: url('../../assets/Facebook.svg') 100% 100% no-repeat;
+            }
+            &:nth-child(2) {
+               background: url('../../assets/Instagram.svg') 100% 100% no-repeat;
+            }
+         }
+      }
+   }
+}

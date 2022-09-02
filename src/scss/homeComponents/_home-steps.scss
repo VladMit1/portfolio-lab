@@ -1,0 +1,52 @@
+.steps {
+   z-index: 2;
+   grid-column-start: 1;
+   grid-column-end: 3;
+   display: grid;
+   text-align: center;
+   grid-row-gap: 2em;
+   &__title {
+      font-size: 2.375em;
+   }
+   .decor {
+      height: 2em;
+      background: $decoration;
+      grid-row-start: 2;
+      align-self: center;
+      background-position: center;
+   }
+   &__instructions {
+      height: 20.3125em;
+      background: $color-White;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      align-items: center;
+      justify-items: center;
+   }
+   .btn {
+      justify-self: center;
+   }
+}
+.instruction-box {
+   width: 9em;
+   height: 11.125em;
+   display: grid;
+   justify-items: center;
+   grid-gap: 0.5em;
+   @for $i from 1 to 5 {
+      &:nth-child(#{$i}) {
+         grid-column-start: (#{$i + 1});
+         .instruction-box__image {
+            background: map.get($step-images, img-#{$i});
+         }
+      }
+   }
+   &__image {
+      height: 5.1875em;
+      width: 5.1875em;
+   }
+   &__decor {
+      width: 50%;
+      border-top: 1px solid $color-Grey;
+   }
+}

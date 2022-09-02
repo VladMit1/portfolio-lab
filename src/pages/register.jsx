@@ -4,17 +4,17 @@ export const Register = () => {
    return (
       <div className="form-log">
          <div className="form-log__login reg">Załóż konto</div>
-         <div className="form-log__decoration reg-d"></div>
+         <div className="decoration reg-d"></div>
          <div className="form-log__input reg-i">
-            <label className="label" forHTML="mail">
+            <label className="label" htmlFor="mail">
                Email
             </label>
             <input type="text" className="input" name="mail"></input>
-            <label className="label" forHTML="pass">
+            <label className="label" htmlFor="pass">
                Hasło
             </label>
             <input type="password" className="input" name="pass"></input>
-            <label className="label" forHTML="pass">
+            <label className="label" htmlFor="pass">
                Powtórz hasło
             </label>
             <input type="password" className="input" name="pass"></input>

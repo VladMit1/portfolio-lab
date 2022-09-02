@@ -1,0 +1,50 @@
+.about-us {
+   z-index: 2;
+   margin: 4em 0;
+   height: 58.4375em;
+   grid-column-start: 1;
+   grid-column-end: 3;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   &__text {
+      background: $color-White;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+   &__text-inner {
+      width: 41.0625em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+   }
+   .decoration {
+      align-self: stretch;
+   }
+   &__image {
+      background: url('../../assets/People.jpg') 100% 100% no-repeat;
+      background-position: center;
+      background-size: cover;
+   }
+   .text {
+      &__title {
+         align-self: center;
+         font-size: 2.375em;
+         margin: 0 0 1em 0;
+      }
+      &__desription {
+         text-align: center;
+         font-size: 1.875em;
+         letter-spacing: -0.6px;
+         line-height: 1.8em;
+         margin: 0 0 1em 0;
+         padding: 0.1em;
+      }
+      &__stamp {
+         width: 13.125em;
+         height: 9.375em;
+         background: url('../../assets/Signature.svg');
+         align-self: flex-end;
+      }
+   }
+}

@@ -1,6 +1,14 @@
-import { Link, Outlet } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
+import * as Scroll from 'react-scroll';
 
+let ScrollLink = Scroll.Link;
 export const Layout = () => {
+   const navigate = useNavigate();
+
+   const returnHome = () => {
+      if (window.location.href !== '/') navigate('/');
+   };
    return (
       <div className="layout">
          <nav className="layout__form-log">
@@ -17,18 +25,54 @@ export const Layout = () => {
                <Link to="/" className="link">
                   Start
                </Link>
-               <a href="#" className="link">
-                  {/*//scrolls*/}O co chodzi?
-               </a>
-               <a href="#" className="link">
-                  O nas
-               </a>
-               <a href="#" className="link">
-                  Fundacja i organizacje
-               </a>
-               <a href="#" className="link">
-                  Kontakt
-               </a>
+               {
+                  <>
+                     <ScrollLink
+                        onClick={returnHome}
+                        className="link"
+                        to="steps"
+                        spy={true}
+                        smooth={true}
+                        offset={-50}
+                        duration={500}
+                     >
+                        O co chodzi?
+                     </ScrollLink>
+                     <ScrollLink
+                        onClick={returnHome}
+                        className="link"
+                        to="about-us"
+                        spy={true}
+                        smooth={true}
+                        offset={-15}
+                        duration={500}
+                     >
+                        O nas
+                     </ScrollLink>
+                     <ScrollLink
+                        onClick={returnHome}
+                        className="link"
+                        to="helps"
+                        spy={true}
+                        smooth={true}
+                        offset={-50}
+                        duration={500}
+                     >
+                        Fundacja i organizacje
+                     </ScrollLink>
+                     <ScrollLink
+                        onClick={returnHome}
+                        className="link"
+                        to="contacts"
+                        spy={true}
+                        smooth={true}
+                        offset={75}
+                        duration={500}
+                     >
+                        Kontakt
+                     </ScrollLink>
+                  </>
+               }
             </nav>
          </nav>
          <Outlet />
