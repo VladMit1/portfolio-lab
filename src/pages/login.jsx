@@ -1,25 +1,107 @@
 import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 
 export const Login = () => {
+   const [email, setEmail] = useState('');
+   const [pass, setPass] = useState('');
+   const [emailDirty, setEmailDirty] = useState(false);
+   const [passDirty, setPassDirty] = useState(false);
+   const [emailError, setEmailError] = useState('Email niemoze  byc pusty');
+   const [passError, setPassError] = useState('Haslo niemoze  byc puste');
+   const [formValid, setFormValid] = useState(false);
+
+   const correctEmail = emailDirty && emailError ? 'inputincorrect' : 'input';
+   const correctPass = passDirty && passError ? 'inputincorrect' : 'input';
+
+   useEffect(() => {
+      if (emailError || passError) {
+         setFormValid(false);
+      } else {
+         setFormValid(true);
+      }
+   }, [emailError, passError]);
+
+   const emailHandler = (e) => {
+      setEmail(e.target.value);
+      const re =
+         /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+      if (!re.test(String(e.target.value).toLowerCase())) {
+         setEmailError('podany email jest nieprawidłowy');
+      } else {
+         setEmailError('');
+      }
+   };
+
+   const passHandler = (e) => {
+      setPass(e.target.value);
+      if (e.target.value.length < 6) {
+         setPassError('Podane hasło jest za krótkie');
+         if (!e.target.value) {
+            setPassError('Hasło nie może być puste');
+         }
+      } else {
+         setPassError('');
+      }
+   };
+
+   const blurHandler = (e) => {
+      switch (e.target.name) {
+         case 'email':
+            setEmailDirty(true);
+            break;
+         case 'pass':
+            setPassDirty(true);
+            break;
+         default:
+            break;
+      }
+   };
+
    return (
       <div className="form-log">
          <div className="form-log__login">Zaloguj się</div>
          <div className="decoration"></div>
          <div className="form-log__input">
-            <label className="label" htmlFor="mail">
+            <label className="label" htmlFor="email">
                Email
             </label>
-            <input type="text" className="input" name="mail"></input>
+            <input
+               onChange={(e) => emailHandler(e)}
+               value={email}
+               onBlur={(e) => blurHandler(e)}
+               type="text"
+               className={correctEmail}
+               name="email"
+            ></input>
+            {emailDirty && emailError && (
+               <div className="error" style={{ gridRowStart: 3 }}>
+                  {emailError}
+               </div>
+            )}
             <label className="label" htmlFor="pass">
                Hasło
             </label>
-            <input type="password" className="input" name="pass"></input>
+            <input
+               onChange={(e) => passHandler(e)}
+               value={pass}
+               onBlur={(e) => blurHandler(e)}
+               type="password"
+               className={correctPass}
+               name="pass"
+            ></input>
+            {passDirty && passError && (
+               <div className="error" style={{ gridRowStart: 6 }}>
+                  {passError}
+               </div>
+            )}
          </div>
          <div className="form-log__button">
             <Link to="/rejestracja" className="log-link">
                Załóż konto
             </Link>
-            <button className="button-btn">Zaloguj się</button>
+            <button disabled={!formValid} className="button-btn">
+               Zaloguj się
+            </button>
          </div>
       </div>
    );
