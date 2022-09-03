@@ -4,7 +4,7 @@
    grid-column-end: 3;
    justify-items: center;
    align-items: center;
-   height: 47.4375em;
+   height: 53.875em;
    .helps-inner {
       margin: 0 auto;
       width: 84em;
@@ -22,7 +22,7 @@
       &__nav {
          display: flex;
          margin-bottom: 3em;
-         .active{
+         .active {
             border: 1px solid $color-DarkGray;
          }
          .nav-link {
@@ -35,9 +35,6 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            //&:hover {
-            //   border: 1px solid $color-Grey;
-            //}
             &:focus {
                border: 1px solid $color-Grey;
             }
@@ -50,32 +47,55 @@
             margin-bottom: 2em;
             font-size: 1.375em;
          }
-      }
-
-      .index__items {
-         align-self: start;
-         display: flex;
-         margin-bottom: 2em;
-         width: 100%;
-         &:not(&:last-child) {
-            border-bottom: 1px solid $color-Grey;
-            padding-bottom: 2em;
-         }
-         .items {
-            &__info {
-               flex-grow: 1;
-               .item {
-                  &__title {
-                     font-size: 1.625em;
+         &__conteiner {
+            width: 100%;
+            .index__items {
+               align-self: start;
+               display: flex;
+               margin-bottom: 2em;
+               width: 100%;
+               &:not(&:last-child) {
+                  border-bottom: 1px solid $color-Grey;
+                  padding-bottom: 2em;
+               }
+               .items {
+                  &__info {
+                     flex-grow: 1;
+                     .item {
+                        &__title {
+                           font-size: 1.625em;
+                        }
+                        &__subtitle {
+                           font-size: 1.125em;
+                        }
+                     }
                   }
-                  &__subtitle {
+                  &__context {
                      font-size: 1.125em;
+                     align-self: center;
                   }
                }
             }
-            &__context {
-               font-size: 1.125em;
-               align-self: center;
+            .pagination {
+               display: flex;
+               justify-content: center;
+               .hidden {
+                  opacity: 0;
+               }
+               .page-item {
+                  list-style: none;
+                  .page-link {
+                     cursor: pointer;
+                     display: flex;
+                     justify-content: center;
+                     align-items: center;
+                     width: 2.5em;
+                     height: 3.125em;
+                     text-decoration: none;
+                     border: 1px solid $color-DarkGray;
+                     margin: 1em;
+                  }
+               }
             }
          }
       }
