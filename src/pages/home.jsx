@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ThreeColumn } from '../components/home-threeColumn';
 import { Steps } from '../components/home-steps';
 import { AboutUs } from '../components/home-about-us';
@@ -17,7 +17,6 @@ export const Home = () => {
             <div className="form__title">
                Zacznij pomagać!<br></br>Oddaj niechciane rzeczy w zaufane ręce
             </div>
-
             <div className="decoration"></div>
             <div className="form__buttons">
                <Link to={actuallyStatus} className="btn">

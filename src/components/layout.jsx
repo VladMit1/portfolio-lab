@@ -19,7 +19,7 @@ export const Layout = () => {
                <Link to="/rejestracja" className="log-link">
                   Załóż konto
                </Link>
-               {/*<Link to="/wylogowano" className="log-link">Logout</Link>*/}
+               <Link to="/wylogowano" className="log-link">Logout</Link>
             </div>
             <nav className="form__links">
                <Link to="/" className="link">

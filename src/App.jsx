@@ -14,7 +14,7 @@ function App() {
                <Route index element={<Home />}></Route>
                <Route path="logowanie" element={<Login />}></Route>
                <Route path="rejestracja" element={<Register />}></Route>
-               <Route path="logout" element={<Logout />}></Route>
+               <Route path="wylogowano" element={<Logout />}></Route>
                <Route path="*" element={<NotFound />}></Route>
             </Route>
          </Routes>

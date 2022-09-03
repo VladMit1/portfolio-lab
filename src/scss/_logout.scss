@@ -1,0 +1,24 @@
+.form-log.logout {
+   width:27.875em;
+   grid-template-rows: repeat(7, 1fr);
+
+   &__login.logout {
+      grid-row-start: 3;
+   }
+   .decoration {
+      grid-row-start: 4;
+      margin:0;
+   }
+   .link-logout {
+      height: 3.125em;
+      width: 9.375em;
+      grid-row-start: 5;
+      justify-self: center;
+      align-self: start;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 0.75px solid $color-DarkGray;
+      text-decoration: none;
+   }
+}
