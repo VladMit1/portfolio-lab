@@ -67,6 +67,18 @@ export const Register = () => {
    const email = useInput('', { isEmpty: true, minLength: 3, isEmail: false });
    const password = useInput('', { isEmpty: true, minLength: 6 });
    const ripidePasword = useInput('', { isEmpty: true, minLength: 6 });
+   const styleErrorMail =
+      email.isDirty && !email.inputValid
+         ? { borderBottom: '1px solid red' }
+         : null;
+   const styleErrorPass =
+      password.isDirty && !password.inputValid
+         ? { borderBottom: '1px solid red' }
+         : null;
+   const styleErrorPassRepiet =
+      ripidePasword.isDirty && !ripidePasword.inputValid
+         ? { borderBottom: '1px solid red' }
+         : null;
 
    return (
       <div className="form-log">
@@ -83,6 +95,7 @@ export const Register = () => {
                type="text"
                className="input"
                name="mail"
+               style={styleErrorMail}
             ></input>
             {(email.isDirty && email.isEmpty && (
                <div className="form-registr" style={{ gridRowStart: 3 }}>
@@ -109,6 +122,7 @@ export const Register = () => {
                type="password"
                className="input"
                name="pass"
+               style={styleErrorPass}
             ></input>
             {(password.isDirty && password.isEmpty && (
                <div className="form-registr" style={{ gridRowStart: 6 }}>
@@ -130,6 +144,7 @@ export const Register = () => {
                type="password"
                className="input"
                name="ripidepass"
+               style={styleErrorPassRepiet}
             ></input>
             {(ripidePasword.isDirty && ripidePasword.isEmpty && (
                <div className="form-registr" style={{ gridRowStart: 9 }}>
