@@ -6,8 +6,8 @@ export const Login = () => {
    const [pass, setPass] = useState('');
    const [emailDirty, setEmailDirty] = useState(false);
    const [passDirty, setPassDirty] = useState(false);
-   const [emailError, setEmailError] = useState('Email niemoze  byc pusty');
-   const [passError, setPassError] = useState('Haslo niemoze  byc puste');
+   const [emailError, setEmailError] = useState('Email nie może  byc pusty');
+   const [passError, setPassError] = useState('Hasło nie może być puste');
    const [formValid, setFormValid] = useState(false);
 
    const correctEmail = emailDirty && emailError ? 'inputincorrect' : 'input';
@@ -27,6 +27,9 @@ export const Login = () => {
          /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
       if (!re.test(String(e.target.value).toLowerCase())) {
          setEmailError('podany email jest nieprawidłowy');
+         if (e.target.value.length === 0) {
+            setEmailError('Email nie może  byc pusty');
+         }
       } else {
          setEmailError('');
       }

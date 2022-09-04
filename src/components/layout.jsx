@@ -6,8 +6,10 @@ let ScrollLink = Scroll.Link;
 export const Layout = () => {
    const navigate = useNavigate();
 
-   const returnHome = () => {
-      if (window.location.href !== '/') navigate('/');
+   const returnHome = (e) => {
+      if (window.location.href !== '/') {
+         navigate('/') 
+      }
    };
    return (
       <div className="layout">
@@ -19,7 +21,9 @@ export const Layout = () => {
                <Link to="/rejestracja" className="log-link">
                   Załóż konto
                </Link>
-               <Link to="/wylogowano" className="log-link">Logout</Link>
+               <Link to="/wylogowano" className="log-link">
+                  Logout
+               </Link>
             </div>
             <nav className="form__links">
                <Link to="/" className="link">

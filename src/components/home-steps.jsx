@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export const Steps = ({actualLink}) => {
+export const Steps = ({ actualLink }) => {
    return (
       <div className="steps">
          <div className="steps__title">Wystarczą 4 proste kroki</div>

@@ -1,4 +1,9 @@
+import React, { useState, useEffect } from 'react';
+
+
 export const Contact = () => {
+   const [inputValue, setInputValue] = useState('');
+   
    return (
       <div className="contacts">
          <div className="contacts__form">
@@ -17,6 +22,8 @@ export const Contact = () => {
                   Wpisz swoją wiadomość
                </label>
                <textarea
+                  value={inputValue}
+                  onChange={(e)=>{setInputValue(e.target.value);}}
                   className="textarea"
                   name="textarea"
                   id=""

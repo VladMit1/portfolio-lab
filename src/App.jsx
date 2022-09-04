@@ -8,17 +8,15 @@ import { Layout } from './components/layout';
 
 function App() {
    return (
-      <>
-         <Routes>
-            <Route path="/" element={<Layout />}>
-               <Route index element={<Home />}></Route>
-               <Route path="logowanie" element={<Login />}></Route>
-               <Route path="rejestracja" element={<Register />}></Route>
-               <Route path="wylogowano" element={<Logout />}></Route>
-               <Route path="*" element={<NotFound />}></Route>
-            </Route>
-         </Routes>
-      </>
+      <Routes>
+         <Route path="/" element={<Layout />}>
+            <Route index element={<Home />}></Route>
+            <Route path="logowanie" element={<Login />}></Route>
+            <Route path="rejestracja" element={<Register />}></Route>
+            <Route path="wylogowano" element={<Logout />}></Route>
+            <Route path="*" element={<NotFound />}></Route>
+         </Route>
+      </Routes>
    );
 }
 
