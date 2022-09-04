@@ -36,8 +36,9 @@ const useValidation = (value, validations) => {
                value ? setIsEmpty(false) : setIsEmpty(true);
                break;
             case 'isEmail':
+               
                const re =
-                  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+                  /^(([^<>()[\]\\.,;:\s@\\"]+(\.[^<>()[\]\\.,;:\s@\\"]+)*)|(\\".+\\"))@(([^<>()[\]\\.,;:\s@\\"]+\.)+[^<>()[\]\\.,;:\s@\\"]{2,})$/i;
                re.test(String(value).toLowerCase())
                   ? setEmailError(false)
                   : setEmailError(true);
@@ -46,7 +47,7 @@ const useValidation = (value, validations) => {
                break;
          }
       }
-   }, [value]);
+   }, [validations, value]);
 
    useEffect(() => {
       if (isEmpty || minEmptyError || emailError) {
@@ -76,7 +77,8 @@ export const Register = () => {
          ? { borderBottom: '1px solid red' }
          : null;
    const styleErrorPassRepiet =
-      ripidePasword.isDirty && !ripidePasword.inputValid
+      (ripidePasword.isDirty && !ripidePasword.inputValid) ||
+      password.value !== ripidePasword.value
          ? { borderBottom: '1px solid red' }
          : null;
 
