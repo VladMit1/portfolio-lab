@@ -21,6 +21,7 @@ const useValidation = (value, validations) => {
    const [minEmptyError, setMinEmptyError] = useState(false);
    const [emailError, setEmailError] = useState(false);
    const [inputValid, setInputValid] = useState(false);
+   const [nameError, setNameError] = useState(false);
    useEffect(() => {
       for (const validation in validations) {
          switch (validation) {
@@ -39,6 +40,12 @@ const useValidation = (value, validations) => {
                   ? setEmailError(false)
                   : setEmailError(true);
                break;
+            case 'isName':
+               const reg = /^\S+$/;
+               reg.test(String(value).toLowerCase())
+                  ? setNameError(false)
+                  : setNameError(true);
+               break;
             default:
                break;
          }
@@ -46,16 +53,17 @@ const useValidation = (value, validations) => {
    }, [validations, value]);
 
    useEffect(() => {
-      if (isEmpty || minEmptyError || emailError) {
+      if (isEmpty || minEmptyError || emailError || nameError) {
          setInputValid(false);
       } else {
          setInputValid(true);
       }
-   }, [isEmpty, emailError, minEmptyError]);
+   }, [isEmpty, emailError, minEmptyError, nameError]);
    return {
       isEmpty,
       minEmptyError,
       emailError,
-      inputValid
+      inputValid,
+      nameError
    };
 };

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useInput } from '../components/customHooks/hooks';
 
 export const Contact = () => {
-   const name = useInput('', { isEmpty: true, minLength: 3 });
+   const name = useInput('', { isEmpty: true, minLength: 3, isName: false });
    const email = useInput('', { isEmpty: true, minLength: 3, isEmail: false });
    const massege = useInput('', { isEmpty: true, minLength: 120 });
+   const [postForm, setPostForm] = useState(false);
+   //--------------Style Error----------------------------------------------------------
    const styleErrorName =
       name.isDirty && !name.inputValid
          ? { borderBottom: '1px solid red' }
@@ -17,11 +19,70 @@ export const Contact = () => {
       massege.isDirty && !massege.inputValid
          ? { borderBottom: '1px solid red' }
          : null;
+   //--------------------------------------------------------------------------------------------
+   const postMassageAlert200 = (
+      <div
+         style={{
+            color: 'green',
+            justifySelf: 'center',
+            gridRowStart: 5,
+            gridRowEnd: 6,
+            textAlign: 'center',
+            fontWeight: 700
+         }}
+      >
+         Wiadomość została wysłana!
+         <br />
+         Wkrótce się skontaktujemy.
+      </div>
+   );
+   //const postMassageAlert400 = (
+   //   <div
+   //      style={{
+   //         color: 'red',
+   //         justifySelf: 'center',
+   //         gridRowStart: 5,
+   //         gridRowEnd: 6,
+   //         textAlign: 'center',
+   //         fontWeight:700
+   //      }}
+   //   >
+   //      Ups, coś poszło nie tak.
+   //   </div>
+   //);
+   const handleSubmit = async function () {
+      try {
+         const response = await fetch(
+            'https://fer-api.coderslab.pl/v1/portfolio/contact',
+            {
+               headers: {
+                  'Content-Type': 'application/json'
+               },
+
+               method: 'POST',
+               body: JSON.stringify({
+                  name: name.value,
+                  email: email.value,
+                  message: massege.value
+               })
+            }
+         );
+         if (response.status === 200) {
+            setPostForm(true);
+         } else {
+            setPostForm(false);
+            console.log('nieRabotajet');
+         }
+      } catch (error) {
+         console.log(error);
+      }
+   };
    return (
       <div className="contacts">
          <div className="contacts__form">
             <div className="form__title">Skontaktuj się z nami</div>
             <div className="decoration"></div>
+            {postForm ? postMassageAlert200 : null}
             <div className="form__inputs">
                <label className="label" htmlFor="name">
                   Wpisz swoje imię
@@ -52,7 +113,7 @@ export const Contact = () => {
                         Podane imię jest za krótkie!
                      </div>
                   )) ||
-                  (name.isDirty && name.emailError && (
+                  (name.isDirty && name.nameError && (
                      <div
                         className="form-registr"
                         style={{ gridRowStart: 4, gridColumnStart: 1 }}
@@ -127,6 +188,7 @@ export const Contact = () => {
                      !email.inputValid ||
                      !massege.inputValid
                   }
+                  onClick={handleSubmit}
                   className="btn"
                >
                   Wyślij

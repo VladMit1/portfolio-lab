@@ -1,15 +1,13 @@
+/* eslint-disable no-unused-expressions */
 import React from 'react';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import * as Scroll from 'react-scroll';
 
-let ScrollLink = Scroll.Link;
+const ScrollLink = Scroll.Link;
 export const Layout = () => {
    const navigate = useNavigate();
-
    const returnHome = (e) => {
-      if (window.location.href !== '/') {
-         navigate('/') 
-      }
+      window.location.href === '/' ? navigate('/') : navigate('/') && Outlet;
    };
    return (
       <div className="layout">
