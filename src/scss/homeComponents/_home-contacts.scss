@@ -44,7 +44,7 @@
          grid-row-end: 8;
          display: grid;
          grid-template-columns: repeat(2, 1fr);
-         grid-template-rows: repeat(12, 2em);
+         grid-template-rows: repeat(12, 2.1em);
          grid-column-gap: 1em;
 
          .label {

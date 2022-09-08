@@ -50,7 +50,11 @@ export const Contact = () => {
    //      Ups, coś poszło nie tak.
    //   </div>
    //);
-   const handleSubmit = async function () {
+   const handleSubmit = (e) => {
+      e.preventDefault();
+      Submit();
+   };
+   const Submit = async function () {
       try {
          const response = await fetch(
             'https://fer-api.coderslab.pl/v1/portfolio/contact',
@@ -58,7 +62,6 @@ export const Contact = () => {
                headers: {
                   'Content-Type': 'application/json'
                },
-
                method: 'POST',
                body: JSON.stringify({
                   name: name.value,
@@ -69,6 +72,8 @@ export const Contact = () => {
          );
          if (response.status === 200) {
             setPostForm(true);
+            const form = document.getElementById('form');
+            form.reset();
          } else {
             setPostForm(false);
             console.log('nieRabotajet');
@@ -77,9 +82,10 @@ export const Contact = () => {
          console.log(error);
       }
    };
+   console.log(document.forms[0]);
    return (
       <div className="contacts">
-         <div className="contacts__form">
+         <form className="contacts__form" id="form">
             <div className="form__title">Skontaktuj się z nami</div>
             <div className="decoration"></div>
             {postForm ? postMassageAlert200 : null}
@@ -183,6 +189,7 @@ export const Contact = () => {
                      </div>
                   ))}
                <button
+                  type="submit"
                   disabled={
                      !name.inputValid ||
                      !email.inputValid ||
@@ -194,7 +201,7 @@ export const Contact = () => {
                   Wyślij
                </button>
             </div>
-         </div>
+         </form>
          <footer className="footer">
             <div className="copyright">Copyright by Coders Lab</div>
             <div className="social-icons">
